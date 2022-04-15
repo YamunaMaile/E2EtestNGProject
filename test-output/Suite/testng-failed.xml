@@ -5,6 +5,7 @@
     <classes>
       <class name="com.TestCases.VerifySingUpFlow">
         <methods>
+          <include name="quiteBrowser"/>
           <include name="LaunchBrowser"/>
           <include name="executeSignUpFlow"/>
         </methods>

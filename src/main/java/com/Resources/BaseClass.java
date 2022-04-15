@@ -9,7 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -37,7 +40,7 @@ public class BaseClass {
 		//checking the condition if browser is chrome/firefox/IE etc using prop.get method
 		if(driverName.equals("chrome"))
 		{
-			WebDriverManager.chromedriver().driverVersion("85.0.4183.38").setup();
+			//WebDriverManager.chromedriver().driverVersion("85.0.4183.38").setup();
 			WebDriverManager.chromedriver().setup(); //this will run if system chrome browser is latest version
 			driver=new ChromeDriver();
 		}
@@ -58,11 +61,18 @@ public class BaseClass {
 		return driver;
 	}
 	
-	@BeforeMethod //we can give beforetest/beforeclass as well
+	@BeforeClass //we can launch the browser beforemethod/beforeclass/beforesuite as per project
 	public void LaunchBrowser() throws IOException
 	{
 		driver=initializeWebDriver();
 		driver.get(property.getProperty("url"));
+		driver.manage().window().maximize();
+	}
+	
+	@AfterClass  //quite the browser after class
+	public void quiteBrowser()
+	{
+		driver.quit();
 	}
 }
 

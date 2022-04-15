@@ -16,9 +16,13 @@ public class SignInPageObjects {
 
 
 	public SignInPageObjects(WebDriver driver2) {
-		this.driver=driver2; //initializing the driver value for current class driver
+		this.driver=driver2;
 	}
 
+	/*
+	 * public SignInPageObjects(WebDriver driver2) { this.driver=driver2;
+	 * //initializing the driver value for current class driver }
+	 */
 	//accessing private elements by public methods and returning web elements
 	public WebElement enterUsername()
 	{

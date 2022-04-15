@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="testNG">
     <classes>
-      <class name="com.TestCases.VerifySingInFlow"/>
+    <class name="com.TestCases.VerifySingInFlow"/>
       <class name="com.TestCases.VerifySingUpFlow"/>
     </classes>
   </test> <!-- testNG -->
